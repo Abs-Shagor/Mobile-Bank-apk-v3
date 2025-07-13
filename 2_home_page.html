@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme='light'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome for icon -->
+    <script src="https://kit.fontawesome.com/f00281792d.js" crossorigin="anonymous"></script><!--  -->
+
+</head>
+
+<body class="flex justify-center">
+
+    <!-- Phone mode -->
+    <div class="mockup-phone border-primary mt-3 ">
+        <div class="mockup-phone-camera"></div>
+        <div class="mockup-phone-display bg-gray-100 ">
+
+            <!-- Full Home page  -->
+            <section
+                class=" h-full pt-15 p-5 relative overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <!-- adding scrolling system without scrollbar -->
+
+                <!-- Home page section-->
+                <section id="home-page-id">
+                    <!-- navbar -->
+                    <nav class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <img id="logo-id" class="w-[50px] cursor-pointer" src="images/Group.png" alt="">
+                            <div>
+                                <h1 class="font-extrabold">$<span id="balance-id">7020</span></h1>
+                                <p class="text-gray-500 text-[13px]">Available Balance</p>
+                            </div>
+                        </div>
+                        <div>
+                            <button id="logout-btn"
+                                class="btn rounded-xl text-gray-500 hover:bg-[#0874F2] hover:text-white border-gray-300"><i
+                                    class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i>
+                                Log Out</button>
+                        </div>
+                    </nav>
+
+                    <!-- Welcome To Payoo -->
+                    <div class="mt-15">
+                        <h1 class="text-[25px] font-bold">🔥 Welcome to Payooo!</h1>
+                        <p class="text-gray-500 my-5">Enjoy easy and convenient financial services with us. Cashout
+                            charge
+                            is low and </p>
+
+                        <!-- cards section -->
+                        <div class="grid grid-cols-3 gap-4">
+                            <div id="home-add-money-id"
+                                class="flex flex-col justify-center max-w-30 h-20  border border-gray-300 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer rounded-xl shadow-sm">
+                                <img class="mx-auto" src="images/wallet1.png" alt="">
+                                <p class="text-center text-[12px] text-gray-500 hover:text-[#0874F2]">Add Money</p>
+                            </div>
+                            <div id="home-cashout-id"
+                                class="flex flex-col justify-center max-w-30 h-20  border border-gray-300 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer rounded-xl shadow-sm">
+                                <img class="mx-auto" src="images/send1.png" alt="">
+                                <p class="text-center text-[12px] text-gray-500 hover:text-[#0874F2]">Cashout</p>
+                            </div>
+                            <div id="home-transfer-money-id"
+                                class="flex flex-col justify-center max-w-30 h-20  border border-gray-300 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer rounded-xl shadow-sm">
+                                <img class="mx-auto" src="images/money1.png" alt="">
+                                <p class="text-center text-[12px] text-gray-500 hover:text-[#0874F2]">Transfer Money</p>
+                            </div>
+                            <div id="home-get-bonus-id"
+                                class="flex flex-col justify-center max-w-30 h-20  border border-gray-300 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer rounded-xl shadow-sm">
+                                <img class="mx-auto" src="images/bonus1.png" alt="">
+                                <p class="text-center text-[12px] text-gray-500 hover:text-[#0874F2]">Get Bonus</p>
+                            </div>
+                            <div id="home-pay-bill-id"
+                                class="flex flex-col justify-center max-w-30 h-20  border border-gray-300 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer rounded-xl shadow-sm">
+                                <img class="mx-auto" src="images/purse1.png" alt="">
+                                <p class="text-center text-[12px] text-gray-500 hover:text-[#0874F2]">Pay Bill</p>
+                            </div>
+                            <div id="home-transaction-id"
+                                class="flex flex-col justify-center max-w-30 h-20  border border-gray-300 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer rounded-xl shadow-sm">
+                                <img class="mx-auto" src="images/transaction1.png" alt="">
+                                <p class="text-center text-[12px] text-gray-500 hover:text-[#0874F2]">Transaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Add money section -->
+                <section id="add-money-id" class="my-10 hidden">
+                    <!-- add money form -->
+                    <form class="flex flex-col justify-center ">
+                        <h1 class="text-[22px] font-bold mb-4 mx-auto">Add Money</h1>
+                        <div class="grid gap-3 bg-white p-5 rounded-xl shadow-md">
+                            <h3 class="font-medium">Select A Bank</h3>
+                            <select id="am-bank-id" class="border-none bg-gray-100 rounded-full p-3 text-gray-500 ">
+                                <option hidden selected>Select bank</option>
+                                <option>Brac Bank</option>
+                                <option>Sonali Bank</option>
+                                <option>Prime Bank</option>
+                                <option>Dhaka Bank</option>
+                                <option>Islami Bank</option>
+                                <option>Others</option>
+                            </select>
+
+                            <h3 class="font-medium">Bank Account Number</h3>
+                            <input id="am-acoount-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="text" name="" placeholder="Enter 11 digit account number" autocomplete="on">
+                            <h3 class="font-medium">Amount to add</h3>
+                            <input id="am-amount-to-add-id" class="border-none bg-gray-100 rounded-full p-3" type="text"
+                                name="" placeholder="Enter amount" autocomplete="on">
+                            <h3 class="font-medium">Pin Number</h3>
+                            <input id="am-pin-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="password" name="" placeholder="Enter 4 digit pin number" autocomplete="off">
+
+                            <button id="am-confirm-btn"
+                                class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Cashout Section -->
+                <section id="cashout-id" class="my-10 hidden">
+                    <form class="flex flex-col justify-center h-full">
+
+                        <h1 class="text-[22px] font-bold mb-4 mx-auto">Cashout</h1>
+
+                        <div class="grid gap-3 bg-white p-5 rounded-xl shadow-md">
+
+                            <h3 class="font-medium">Agent Number</h3>
+                            <input id="cashout-agent-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="text" name="" placeholder="Enter agent number" autocomplete="on">
+                            <h3 class="font-medium">Amount</h3>
+                            <input id="cashout-amount-id" class="border-none bg-gray-100 rounded-full p-3" type="text"
+                                name="" placeholder="Enter amount" autocomplete="on">
+                            <h3 class="font-medium">Pin Number</h3>
+                            <input id="cashout-pin-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="password" name="" placeholder="Enter 4 digit pin number" autocomplete="off">
+
+                            <button id="cashout-confirm-btn"
+                                class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                        </div>
+                    </form>
+                </section>
+
+
+                <!-- Transfer money section -->
+                <section id="transfer-money-id" class="my-10 hidden">
+                    <form class="flex flex-col justify-center h-full">
+                        <h1 class="text-[22px] font-bold mb-4 mx-auto">Transfer Money</h1>
+                        <div class="grid gap-3 bg-white p-5 rounded-xl shadow-md">
+
+                            <h3 class="font-medium">User Account Number</h3>
+                            <input id="tm-account-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="text" name="" placeholder="Enter 11 digit user account number" autocomplete="on">
+                            <h3 class="font-medium">Amount</h3>
+                            <input id="tm-amount-id" class="border-none bg-gray-100 rounded-full p-3" type="text"
+                                name="" placeholder="Enter amount to transfer" autocomplete="on">
+                            <h3 class="font-medium">Pin Number</h3>
+                            <input id="tm-pin-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="password" name="" placeholder="Enter 4 digit pin number" autocomplete="off">
+
+                            <button id="tm-confirm-btn"
+                                class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Get Bonus section -->
+                <section id="get-bonus-id" class="my-10 hidden">
+                    <form class="flex flex-col justify-center h-full">
+                        <h1 class="text-[22px] font-bold mb-4 mx-auto">Get Bonus</h1>
+
+                        <div class="grid gap-3 bg-white p-5 rounded-xl shadow-md">
+
+                            <h3 class="font-medium">Enter Bonus Coupon</h3>
+                            <input id="gb-coupon-id" class="border-none bg-gray-100 rounded-full p-3" type="text"
+                                name="" placeholder="Enter your coupon" autocomplete="on">
+
+                            <button id="gb-confirm-btn"
+                                class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Pay Bill section -->
+                <section id="pay-bill-id" class="my-10 hidden">
+                    <form class="flex flex-col justify-center h-full">
+                        <h1 class="text-[22px] font-bold mb-4 mx-auto">Pay Bill</h1>
+
+                        <div class="grid gap-3 bg-white p-5 rounded-xl shadow-md">
+
+                            <h3 class="font-medium">Biller Name</h3>
+                            <input id="pb-name-id" class="border-none bg-gray-100 rounded-full p-3" type="text" name=""
+                                placeholder="Enter biller name" autocomplete="on">
+                            <h3 class="font-medium">Biller Account Number</h3>
+                            <input id="pb-account-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="text" name="" placeholder="Enter account number" autocomplete="on">
+                            <h3 class="font-medium">Amount To Pay</h3>
+                            <input id="pb-amount-id" class="border-none bg-gray-100 rounded-full p-3" type="text"
+                                name="" placeholder="Add amount to pay" autocomplete="on">
+                            <h3 class="font-medium">Pin Number</h3>
+                            <input id="pb-pin-number-id" class="border-none bg-gray-100 rounded-full p-3"
+                                type="password" name="" placeholder="Enter 4 digit pin number" autocomplete="off">
+
+                            <button id="pb-confirm-btn"
+                                class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                        </div>
+                    </form>
+                </section>
+
+
+                <!-- Transactions section -->
+                <section id="transaction-id">
+                    <!-- Latest payment heading -->
+                    <div class="flex justify-between mt-20">
+                        <h1 class="text-[21px] font-bold">Latest Payment</h1>
+                        <p id="view-all-id"
+                            class="text-[14px] text-gray-600 cursor-pointer hover:border-b-1 hover:border-b-gray-400">
+                            View All</p>
+                    </div>
+
+                    <!-- payment cards -->
+                    <div id="payment-history-id">
+                        <div
+                            class="flex justify-between items-center mt-4 bg-white rounded-xl p-3 border border-gray-200 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-gray-300 p-2 rounded-full">
+                                    <img src="images/transaction1.png" alt="">
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-gray-700 font-bold">Electricity Bill</p>
+                                        <p class="text-green-600 font-medium">3000BDT</p>
+                                    </div>
+                                    <p class="text-[12px] text-gray-600">05/16/2025, 11:40 AM</p>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                        <div
+                            class="flex justify-between items-center mt-4 bg-white rounded-xl p-3 border border-gray-200 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-gray-300 p-2 rounded-full">
+                                    <img src="images/transaction1.png" alt="">
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-gray-700 font-bold">Bank Deposit</p>
+                                        <p class="text-green-600 font-medium">12000BDT</p>
+                                    </div>
+                                    <p class="text-[12px] text-gray-600">05/03/2025, 09:10 AM</p>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                        <div
+                            class="flex justify-between items-center mt-4 bg-white rounded-xl p-3 border border-gray-200 hover:border-[#0874F2] hover:bg-[#e2ecf6] cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-gray-300 p-2 rounded-full">
+                                    <img src="images/transaction1.png" alt="">
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-gray-700 font-bold">Mobile Recharge</p>
+                                        <p class="text-green-600 font-medium">20BDT</p>
+                                    </div>
+                                    <p class="text-[12px] text-gray-600">05/21/2025, 03:41 PM</p>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- alert section -->
+                <section>
+                    <!-- by using positioning(relative and absolute), I set the position of alert messege -->
+                    <!-- I take the phone display as relative and erro/seccess alert as absolute -->
+
+                    <!-- Success Alert -->
+                    <div class="flex justify-center">
+                        <div id="success-alert" role="alert" class="alert alert-success mx-5 absolute top-12 hidden ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span id="success-message">Money added successfully !</span>
+                        </div>
+                    </div>
+                    <!-- Warning Alert -->
+                    <div class="flex justify-center">
+                        <div id="warning-alert" role="alert" class="alert alert-warning mx-5 absolute top-12 hidden ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <span>Warning: Incomplete information !</span>
+                        </div>
+                    </div>
+                    <!-- Error Alert -->
+                    <div class="flex justify-center">
+                        <div id="error-alert" role="alert" class="alert alert-error mx-5 absolute top-12 hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span id="error-message">Wrong AC. No. or Pin or Bank Name!</span>
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- connecting common.js file -->
+    <script src="common.js"></script>
+
+    <!-- javascript code -->
+    <script>
+
+        /* Home section */
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            window.location.href = '1_login_page.html';
+        })
+        changingSectionByClicked('home-add-money-id', 'add-money-id');
+        changingSectionByClicked('home-cashout-id', 'cashout-id');
+        changingSectionByClicked('home-transfer-money-id', 'transfer-money-id');
+        changingSectionByClicked('home-get-bonus-id', 'get-bonus-id');
+        changingSectionByClicked('home-pay-bill-id', 'pay-bill-id');
+        changingSectionByClicked('home-transaction-id', 'transaction-id');
+        changingSectionByClicked('logo-id', 'transaction-id');
+
+
+        /* add money section */
+        document.getElementById('am-bank-id').addEventListener('change', function (event) {
+            event.target.style.color = 'black'
+        })
+        document.getElementById('am-confirm-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+            const bank = document.getElementById('am-bank-id');
+            const accountNumber = document.getElementById('am-acoount-number-id');
+            const amount = document.getElementById('am-amount-to-add-id');
+            const pin = document.getElementById('am-pin-number-id');
+
+            if (bank.value === 'Sonali Bank' && accountNumber.value === '12345678' && pin.value === '2525' && parseInt(amount.value) > 0) {
+                calculateNewBalance('balance-id', 'am-amount-to-add-id', 'plus'); // calculating new Balance
+                addingTransactionInHistory('Bank Deposit ', amount); // adding this transaction in transaction/payment history
+                bank.selectedIndex = 0; // manually reseting select bank field
+                bank.style.color = 'gray';
+                reset(accountNumber, amount, pin); // reset all input field
+
+                alertt('success-alert', 'Money added successfully !'); // show success alert
+            }
+            else if (checkEmpty(bank, accountNumber, amount, pin)) {
+                alertt('warning-alert', 'Warning: Incomplete information !'); // Show Warning alert
+            }
+            else {
+                alertt('error-alert', 'Wrong AC. No. or Pin or Bank Name!'); // Show error alert
+            }
+
+        })
+
+        /* cashout section */
+        document.getElementById('cashout-confirm-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+            const agentNumber = document.getElementById('cashout-agent-number-id');
+            const amount = document.getElementById('cashout-amount-id');
+            const pin = document.getElementById('cashout-pin-number-id');
+            const balance = document.getElementById('balance-id');
+
+            if (pin.value === '2525' && (parseInt(amount.value) <= parseInt(balance.innerText))) {
+                calculateNewBalance('balance-id', 'cashout-amount-id', 'minus');
+                addingTransactionInHistory('Cashout ', amount);
+                reset(agentNumber, amount, pin);
+                alertt('success-alert', 'Withdraw successfully !');
+            }
+            else if (checkEmpty(agentNumber, amount, pin) || (parseInt(amount.value) > parseInt(balance.innerText))) {
+                alertt('warning-alert', 'Warning: Incomplete information !'); // Show Warning alert
+            }
+            else {
+                alertt('error-alert', 'Wrong Agent Number or Pin !'); // Show error alert
+            }
+        })
+
+        /* transfer section */
+        document.getElementById('tm-confirm-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+            const accountNumber = document.getElementById('tm-account-number-id');
+            const amount = document.getElementById('tm-amount-id');
+            const pin = document.getElementById('tm-pin-number-id');
+            const balance = document.getElementById('balance-id');
+
+            if (pin.value === '2525' && (parseInt(amount.value) <= parseInt(balance.innerText))) {
+                calculateNewBalance('balance-id', 'tm-amount-id', 'minus');
+                addingTransactionInHistory('Transfered ', amount);
+                reset(accountNumber, amount, pin);
+                alertt('success-alert', 'Money Transfer successfully !');
+            }
+            else if (checkEmpty(accountNumber, amount, pin) || (parseInt(amount.value) > parseInt(balance.innerText))) {
+                alertt('warning-alert', 'Warning: Incomplete information !');
+            }
+            else {
+                alertt('error-alert', 'Wrong AC. No. or Pin !');
+            }
+        })
+
+        /* get bonus section */
+        document.getElementById('gb-confirm-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+            const coupon = document.getElementById('gb-coupon-id');
+            const balance = document.getElementById('balance-id');
+            if (coupon.value === 'absShagor56') {
+                const newBalance = parseInt(balance.innerText) + 10;
+                balance.innerText = String(newBalance);
+                reset(coupon);
+                alertt('success-alert', "Congratulations! You've received $10!");
+            }
+            else if (checkEmpty(coupon)) {
+                alertt('warning-alert', 'Warning: Incomplete information !');
+            }
+            else {
+                alertt('error-alert', 'Invalid Coupon !');
+            }
+        })
+
+        /* Pay Bill section */
+        document.getElementById('pb-confirm-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+            const billerName = document.getElementById('pb-name-id')
+            const accountNumber = document.getElementById('pb-account-number-id');
+            const amount = document.getElementById('pb-amount-id');
+            const pin = document.getElementById('pb-pin-number-id');
+            const balance = document.getElementById('balance-id');
+
+            if (pin.value === '2525' && (parseInt(amount.value) <= parseInt(balance.innerText))) {
+                calculateNewBalance('balance-id', 'pb-amount-id', 'minus');
+                addingTransactionInHistory('Electricity Bill ', amount);
+                reset(billerName, accountNumber, amount, pin);
+                alertt('success-alert', 'Paid !');
+            }
+            else if (checkEmpty(billerName, accountNumber, amount, pin) || (parseInt(amount.value) > parseInt(balance.innerText))) {
+                alertt('warning-alert', 'Warning: Incomplete information !');
+            }
+            else {
+                alertt('error-alert', 'Wrong AC. Number or Pin !');
+            }
+        })
+
+    </script>
+</body>
+
+</html>

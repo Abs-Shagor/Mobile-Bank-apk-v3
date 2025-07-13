@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme='light'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="flex justify-center">
+
+    <!-- Phone mode -->
+    <div class="mockup-phone border-primary mt-3 ">
+        <div class="mockup-phone-camera"></div>
+        <div class="mockup-phone-display bg-gray-100">
+
+            <!-- Login Page -->
+            <section class="flex flex-col justify-center h-full p-5">
+                <!-- Logo -->
+                <div class="flex justify-center relative ">
+                    <img src="images/bg.png" alt="">
+                    <img class="absolute top-7" src="images/Group.png" alt="">
+                </div>
+
+                <!-- login form -->
+                <form class="grid gap-3  bg-white rounded-xl shadow-md p-5 mt-5">
+                    <h3 class="font-bold">Mobile Number</h3>
+                    <input id="login-number-id" class="border-none bg-gray-100 rounded-xl p-3" type="text" name=""
+                        placeholder="Enter your number" autocomplete="on">
+                    <h3 class="font-bold">4 Digit Pin</h3>
+                    <input id="login-pin-id" class="border-none bg-gray-100 rounded-xl p-3" type="password" name=""
+                        placeholder="Enter 4 digit pin" autocomplete="off">
+                    <button id="login-btn" class="btn btn-primary border-none rounded-xl bg-[#0874F2]">Login</button>
+                </form>
+            </section>
+
+            <!-- Success Alert -->
+            <div id="success-alert" role="alert" class="alert alert-success mx-5 absolute top-20 hidden ">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span id="success-message">Login successful !</span>
+            </div>
+            <!-- Warning Alert -->
+            <div id="warning-alert" role="alert" class="alert alert-warning mx-5 absolute top-20 hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <span>Warning: Incomplete information !</span>
+            </div>
+            <!-- Error Alert -->
+            <div id="error-alert" role="alert" class="alert alert-error mx-5 absolute top-20  hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span id="error-message">Wrong Mobile Number or Pin!</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- javascript code -->
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function (event) {
+            event.preventDefault(); // to stop defoult form behavior(ex. page reload, auto submit etc ) 
+            const number = document.getElementById('login-number-id');
+            const pin = document.getElementById('login-pin-id');
+            if (number.value === '01879097422' && pin.value === '2525') {
+
+                // Show success alert
+                const successAlert = document.getElementById('success-alert');
+                successAlert.classList.remove('hidden');
+                setTimeout(() => successAlert.classList.add('hidden'), 1000); // Auto-hide after 1s
+
+                setTimeout(() => window.location.href = '2_home_page.html', 1000); // log in to home page after 1s
+            }
+            else if (number.value === '' || pin.value === '') {
+                // Show Warning alert
+                const warningAlert = document.getElementById('warning-alert');
+                warningAlert.classList.remove('hidden');
+                setTimeout(() => warningAlert.classList.add('hidden'), 3000);
+            }
+            else {
+                // Show error alert
+                const errorAlert = document.getElementById('error-alert');
+                errorAlert.classList.remove('hidden');
+                setTimeout(() => errorAlert.classList.add('hidden'), 3000);
+            }
+        })
+    </script>
+</body>
+
+</html>
