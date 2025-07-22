@@ -1,6 +1,6 @@
 
-/* made function for all common functionality */
-const sectionsId = ['add-money-id', 'cashout-id', 'transfer-money-id', 'get-bonus-id', 'pay-bill-id'];
+
+const sectionsId = ['home-page-id', 'add-money-id', 'cashout-id', 'transfer-money-id', 'get-bonus-id', 'pay-bill-id', 'transaction-id'];
 function changingSectionByClicked(id1, id2) {
     document.getElementById(id1).addEventListener('click', function () {
         for (const sectionId of sectionsId) {
@@ -10,8 +10,50 @@ function changingSectionByClicked(id1, id2) {
             }
         }
         document.getElementById(id2).classList.remove('hidden');
+
+        if(id2==='transaction-id') {
+            document.getElementById('transaction-back-to-home-btn').classList.remove('hidden');
+            document.getElementById('view-all-id').classList.add('hidden');
+        }
     })
 }
+function backToHome(id1,id2,id3) {
+    document.getElementById(id1).addEventListener('click', function (event) {
+        event.preventDefault();
+        for (const sectionId of sectionsId) {
+            const classes = document.getElementById(sectionId).classList;
+            if (!classes.contains('hidden')) {
+                classes.add('hidden');
+            }
+        }
+        document.getElementById(id2).classList.remove('hidden');
+        document.getElementById(id3).classList.remove('hidden');
+        
+        if(id1=='transaction-back-to-home-btn') {
+            document.getElementById('transaction-back-to-home-btn').classList.add('hidden');
+            document.getElementById('view-all-id').classList.remove('hidden');
+        }
+    })
+}
+
+/// calculating New balance
+function calculateNewBalance(id1, id2, op) {
+    const total_amount = localStorage.getItem('amount');
+    
+    const balance = document.getElementById(id1);
+    const amount = document.getElementById(id2);
+    
+    let newBalance = '0';
+    if (op === 'plus') {
+        newBalance = parseInt(total_amount) + parseInt(amount.value);
+    }
+    else if (op === 'minus') {
+        newBalance = parseInt(total_amount) - parseInt(amount.value);
+    }
+    balance.innerText = String(newBalance);
+    localStorage.setItem('amount', String(newBalance));
+}
+
 function addingTransactionInHistory(title, amount) {
     // Get current date and time
     const now = new Date();
@@ -46,6 +88,7 @@ function addingTransactionInHistory(title, amount) {
     `;
     const history = document.getElementById('payment-history-id');
     history.insertBefore(newChild, history.firstChild); // Adds at the top
+    // localStorage.setItem('div1',JSON.stringify(history));
 }
 
 
@@ -73,18 +116,4 @@ function checkEmpty(...arg) {
         }
     }
     return false;
-}
-
-/// calculating New balance
-function calculateNewBalance(id1, id2, op) {
-    const balance = document.getElementById(id1);
-    const amount = document.getElementById(id2);
-    let newBalance = '0';
-    if (op === 'plus') {
-        newBalance = parseInt(balance.innerText) + parseInt(amount.value);
-    }
-    else if (op === 'minus') {
-        newBalance = parseInt(balance.innerText) - parseInt(amount.value);
-    }
-    balance.innerText = String(newBalance);
 }

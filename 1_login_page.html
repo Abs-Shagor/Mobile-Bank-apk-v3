@@ -39,39 +39,46 @@
                 </form>
             </section>
 
+
+
             <!-- Success Alert -->
-            <div id="success-alert" role="alert" class="alert alert-success mx-5 absolute top-20 hidden ">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span id="success-message">Login successful !</span>
+            <div class="flex justify-center">
+                <div id="success-alert" role="alert" class="alert alert-success mx-5 absolute top-18 hidden ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span id="success-message">Money added successfully !</span>
+                </div>
             </div>
             <!-- Warning Alert -->
-            <div id="warning-alert" role="alert" class="alert alert-warning mx-5 absolute top-20 hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-                <span>Warning: Incomplete information !</span>
+            <div class="flex justify-center">
+                <div id="warning-alert" role="alert" class="alert alert-warning mx-5 absolute top-18 hidden ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>Warning: Incomplete information !</span>
+                </div>
             </div>
             <!-- Error Alert -->
-            <div id="error-alert" role="alert" class="alert alert-error mx-5 absolute top-20  hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span id="error-message">Wrong Mobile Number or Pin!</span>
+            <div class="flex justify-center">
+                <div id="error-alert" role="alert" class="alert alert-error mx-5 absolute top-18 hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span id="error-message">Wrong AC. No. or Pin or Bank Name!</span>
+                </div>
             </div>
 
         </div>
     </div>
 
     <!-- javascript code -->
-    <script src="script.js"></script>
     <script>
         document.getElementById('login-btn').addEventListener('click', function (event) {
             event.preventDefault(); // to stop defoult form behavior(ex. page reload, auto submit etc ) 
@@ -98,6 +105,8 @@
                 errorAlert.classList.remove('hidden');
                 setTimeout(() => errorAlert.classList.add('hidden'), 3000);
             }
+            /// set the initial amount in local storage
+            localStorage.setItem('amount', '7020');
         })
     </script>
 </body>

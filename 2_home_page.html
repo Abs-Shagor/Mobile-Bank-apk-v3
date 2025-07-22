@@ -119,6 +119,8 @@
 
                             <button id="am-confirm-btn"
                                 class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                            <button id="am-back-to-home-btn"
+                                class="btn border-gray-300 bg-gray-100 hover:bg-gray-300 rounded-full">Back</button>
                         </div>
                     </form>
                 </section>
@@ -143,10 +145,11 @@
 
                             <button id="cashout-confirm-btn"
                                 class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                            <button id="cashout-back-to-home-btn"
+                                class="btn border-gray-300 bg-gray-100 hover:bg-gray-300 rounded-full">Back</button>
                         </div>
                     </form>
                 </section>
-
 
                 <!-- Transfer money section -->
                 <section id="transfer-money-id" class="my-10 hidden">
@@ -166,6 +169,8 @@
 
                             <button id="tm-confirm-btn"
                                 class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                            <button id="tm-back-to-home-btn"
+                                class="btn border-gray-300 bg-gray-100 hover:bg-gray-300 rounded-full">Back</button>
                         </div>
                     </form>
                 </section>
@@ -183,6 +188,8 @@
 
                             <button id="gb-confirm-btn"
                                 class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                            <button id="gb-back-to-home-btn"
+                                class="btn border-gray-300 bg-gray-100 hover:bg-gray-300 rounded-full">Back</button>
                         </div>
                     </form>
                 </section>
@@ -209,15 +216,23 @@
 
                             <button id="pb-confirm-btn"
                                 class="btn btn-primary border-none rounded-full bg-[#0874F2]">Confirm</button>
+                            <button id="pb-back-to-home-btn"
+                                class="btn border-gray-300 bg-gray-100 hover:bg-gray-300 rounded-full">Back</button>
                         </div>
                     </form>
                 </section>
 
 
                 <!-- Transactions section -->
-                <section id="transaction-id">
+                <section id="transaction-id" class="">
+                    <!-- Back To Home Button -->
+                    <button id="transaction-back-to-home-btn"
+                        class="btn rounded-xl text-gray-500 hover:bg-[#0874F2] hover:text-white border-gray-300 hidden"><i
+                            class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i>
+                        Back</button>
+
                     <!-- Latest payment heading -->
-                    <div class="flex justify-between mt-20">
+                    <div class="flex justify-between mt-15">
                         <h1 class="text-[21px] font-bold">Latest Payment</h1>
                         <p id="view-all-id"
                             class="text-[14px] text-gray-600 cursor-pointer hover:border-b-1 hover:border-b-gray-400">
@@ -334,6 +349,9 @@
 
     <!-- javascript code -->
     <script>
+        /* showing updated balance from local storage */
+        document.getElementById('balance-id').innerText = localStorage.getItem('amount');
+
 
         /* Home section */
         document.getElementById('logout-btn').addEventListener('click', function () {
@@ -345,7 +363,15 @@
         changingSectionByClicked('home-get-bonus-id', 'get-bonus-id');
         changingSectionByClicked('home-pay-bill-id', 'pay-bill-id');
         changingSectionByClicked('home-transaction-id', 'transaction-id');
-        changingSectionByClicked('logo-id', 'transaction-id');
+        changingSectionByClicked('view-all-id', 'transaction-id');
+
+        backToHome('am-back-to-home-btn', 'home-page-id', 'transaction-id')
+        backToHome('cashout-back-to-home-btn', 'home-page-id', 'transaction-id')
+        backToHome('tm-back-to-home-btn', 'home-page-id', 'transaction-id')
+        backToHome('gb-back-to-home-btn', 'home-page-id', 'transaction-id')
+        backToHome('pb-back-to-home-btn', 'home-page-id', 'transaction-id')
+        backToHome('transaction-back-to-home-btn', 'home-page-id', 'transaction-id')
+        backToHome('logo-id', 'home-page-id', 'transaction-id')
 
 
         /* add money section */
@@ -361,7 +387,7 @@
 
             if (bank.value === 'Sonali Bank' && accountNumber.value === '12345678' && pin.value === '2525' && parseInt(amount.value) > 0) {
                 calculateNewBalance('balance-id', 'am-amount-to-add-id', 'plus'); // calculating new Balance
-                addingTransactionInHistory('Bank Deposit ', amount); // adding this transaction in transaction/payment history
+                addingTransactionInHistory('Bank Deposit ', amount); // adding this transaction in transactions/payment history
                 bank.selectedIndex = 0; // manually reseting select bank field
                 bank.style.color = 'gray';
                 reset(accountNumber, amount, pin); // reset all input field
@@ -426,9 +452,11 @@
             event.preventDefault();
             const coupon = document.getElementById('gb-coupon-id');
             const balance = document.getElementById('balance-id');
+            const total_balance = localStorage.getItem('amount');
             if (coupon.value === 'absShagor56') {
-                const newBalance = parseInt(balance.innerText) + 10;
+                const newBalance = parseInt(total_balance) + 10;
                 balance.innerText = String(newBalance);
+                localStorage.setItem('amount', String(newBalance));
                 reset(coupon);
                 alertt('success-alert', "Congratulations! You've received $10!");
             }
